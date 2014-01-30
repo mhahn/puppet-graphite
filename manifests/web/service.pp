@@ -2,9 +2,6 @@
 #
 class graphite::web::service inherits graphite::web::params {
 
-  $manage_httpd = $graphite::web::params::manage_httpd
-  $service_name = $graphite::web::params::service_name
-
   if $manage_httpd {
     service { $service_name:
       ensure     => running,
