@@ -3,7 +3,7 @@
 class graphite::web::package inherits graphite::web::params {
 
   package { $package_name:
-    ensure   => present,
+    ensure   => latest,
     provider => 'pip',
     require  => Package['python-pip'],
   }
