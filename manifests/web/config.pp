@@ -10,7 +10,7 @@ class graphite::web::config inherits graphite::web::params {
     mode      => '0644',
     notify    => Service[$service_name],
     content   => template('graphite/local_settings.py.erb'),
-    require   => Package['graphite-web'],
+    require   => Package[$package_name],
   }
 
   if $::osfamily == 'Debian' {
