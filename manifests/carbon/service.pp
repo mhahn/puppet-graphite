@@ -1,7 +1,6 @@
 # Class: graphite::carbon::service
 #
-class graphite::carbon::service {
-  $service_name = $::graphite::carbon::params::service_name
+class graphite::carbon::service inherits graphite::carbon::params {
 
   service { $service_name:
     ensure     => running,
@@ -9,5 +8,6 @@ class graphite::carbon::service {
     hasrestart => true,
     hasstatus  => true,
   }
+
 }
 

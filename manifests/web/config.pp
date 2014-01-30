@@ -13,14 +13,12 @@ class graphite::web::config inherits graphite::web::params {
     require   => Package[$package_name],
   }
 
-  if $::osfamily == 'Debian' {
-    file { "${config_dir}/apache2.conf":
-      ensure  => present,
-      owner   => 'root',
-      group   => 'root',
-      notify  => Service[$service_name],
-      content => template("graphite/apache2.conf.${::osfamily}.erb");
-    }
+  file { "${config_dir}/apache2.conf":
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    notify  => Service[$service_name],
+    content => template("graphite/apache2.conf.${::osfamily}.erb");
   }
-}
 
+}

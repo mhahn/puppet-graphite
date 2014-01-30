@@ -1,16 +1,12 @@
 # Class: graphite::web::package
 #
-class graphite::web::package inherits graphite::web::params {
+class graphite::web::package {
 
-  if $::osfamily == 'RedHat' {
-    package { 'bitmap-fonts-compat':
-      ensure => present,
-      before => Package[$package_name];
-    }
+  package { ['graphite-web', 'django-tagging']:
+    ensure   => present,
+    provider => 'pip',
+    require  => Package['python-pip'],
   }
 
-  package { $package_name:
-    ensure => present;
-  }
 }
 

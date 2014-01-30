@@ -35,4 +35,3 @@ class graphite::web (
   Anchor['graphite::web::end']
 
 }
-

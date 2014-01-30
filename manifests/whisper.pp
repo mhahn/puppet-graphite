@@ -16,11 +16,9 @@ class graphite::whisper {
   anchor { 'graphite::whisper::end': }
 
   include graphite::whisper::package
-  include graphite::whisper::config
 
   Anchor['graphite::whisper::begin'] ->
     Class['graphite::whisper::package'] ->
-    Class['graphite::whisper::config'] ->
     Anchor['graphite::whisper::end']
 
 }
