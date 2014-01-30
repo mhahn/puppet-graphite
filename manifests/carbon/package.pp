@@ -1,14 +1,17 @@
 # Class: graphite::carbon::package
 #
 class graphite::carbon::package {
-  $package_name = $::osfamily ? {
-    /(?i:Debian)/ => 'python-carbon',
-    /(?i:RedHat)/ => 'carbon',
-    default       => 'carbon',
+
+  $package_provider = $::osfamily ? {
+    /(?i:Debian)/ => 'pip',
+    default       => undef,
   }
 
-  package { $package_name:
-    ensure => present;
+  package { 'carbon':
+    ensure   => present,
+    provider => $package_provider,
+    require  => Package['python-pip'],
   }
+
 }
 
