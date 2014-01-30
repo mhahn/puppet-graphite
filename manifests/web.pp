@@ -15,9 +15,9 @@
 # * Update documentation
 #
 class graphite::web (
-  $manage_httpd = $::graphite::params::manage_httpd,
-  $manage_httpd = $::graphite::params::config_dir,
-) {
+  $manage_httpd = $manage_httpd,
+  $manage_httpd = $config_dir,
+) inherits graphite::params {
 
   anchor { 'graphite::web::begin': }
   anchor { 'graphite::web::end': }

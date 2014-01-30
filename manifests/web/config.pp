@@ -1,8 +1,6 @@
 # Class: graphite::web::config
 #
-class graphite::web::config {
-  $config_dir   = $::graphite::web::params::config_dir
-  $service_name = $::graphite::web::params::service_name
+class graphite::web::config inherits graphite::web::params {
 
   file { 'local_settings.py':
     ensure    => file,

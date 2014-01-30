@@ -12,5 +12,15 @@ class graphite::web::params {
     /(?i:RedHat)/ => 'httpd',
     default       => 'httpd',
   }
+
+  $package_name = $::osfamily ? {
+    /(?i:Debian)/ => [
+      'python-django-tagging',
+      'python-graphite-web',
+    ],
+    /(?i:RedHat)/ => 'graphite-web',
+    default       => 'graphite-web',
+  }
+
 }
 

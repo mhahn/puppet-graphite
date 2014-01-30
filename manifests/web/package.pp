@@ -1,14 +1,6 @@
 # Class: graphite::web::package
 #
-class graphite::web::package {
-  $package_name = $::osfamily ? {
-    /(?i:Debian)/ => [
-      'python-django-tagging',
-      'python-graphite-web',
-    ],
-    /(?i:RedHat)/ => 'graphite-web',
-    default       => 'graphite-web',
-  }
+class graphite::web::package inherits graphite::web::params {
 
   if $::osfamily == 'RedHat' {
     package { 'bitmap-fonts-compat':
