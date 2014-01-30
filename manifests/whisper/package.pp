@@ -13,6 +13,7 @@ class graphite::whisper::package {
   package { $package_name:
     ensure   => present,
     provider => $package_provider,
+    require  => Package['python-pip'],
   }
 }
 
