@@ -2,7 +2,7 @@
 #
 class graphite::whisper::package {
 
-  package { 'whipser':
+  package { 'whisper':
     ensure   => present,
     provider => 'pip',
     require  => Package['python-pip'],
