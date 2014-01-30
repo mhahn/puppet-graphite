@@ -30,8 +30,8 @@ class graphite::web (
   Anchor['graphite::web::begin'] ->
   Class['graphite::web::params'] ->
   Class['graphite::web::package'] ->
-  Class['graphite::web::config'] ->
   Class['graphite::web::service'] ->
+  Class['graphite::web::config'] ->
   Anchor['graphite::web::end']
 
 }
